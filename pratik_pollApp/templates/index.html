@@ -1,0 +1,51 @@
+{% load static %}{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="{% static 'css/create.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    {% for message in messages %}
+    <div class=" alert alert-{{ message.tags }} alert-dismissible fade show " role="alert">
+        <strong>Message :</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+
+    <div class="container">
+        <div class="row " style="margin-top: 5%;">
+            <h3 class="text-center mt-3">Poll App</h3>
+        </div>
+        <div class="row justify-content: end">
+            <div class="col-12 py-3">
+
+                <div>
+
+                    <a class="text-white text-decoration-none" style="margin-left: 65%;" href="/signup"> SignUp</a>
+                    <a class="text-white text-decoration-none" style="margin-left: 5%;" href="/login"> SignIn</a>
+                    <a class="text-white text-decoration-none" style="margin-left: 5%;" href="/create"> Create</a>
+                    <a class="text-white text-decoration-none" style="margin-left: 5%;" href="/view"> View Poll List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <a href="/create">create page</a> -->
+</body>
+
+</html>
+<!-- {% if user.is_authenticated %}
+<h5>hello {{fname}}</h5>
+<h6>You have successfully logged in.</h6>
+<a href="/signout"> LogOut</a> {% else %}
+<a href="/signup"> SignUp</a>
+
+<a href="/login"> signIn</a> {% endif %} -->
